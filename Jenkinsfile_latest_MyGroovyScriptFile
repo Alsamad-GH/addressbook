@@ -10,34 +10,45 @@ Purpose: To build Frontend java project
 
 pipeline {
 
-agent {
+	agent {
 
-    label 'master'
-}
+		label 'master'
+	}
+	tools {
 
-stages{
+		 maven 'mymaven'
+		 jdk 'java11'
+	}
 
-    stage('Validate project') {
-    steps {
+	stages{
+	
+		stage ('Code Checkout'){
+			steps {
+			git credentialsId: 'devops_git', url: 'https://github.com/Alsamad-GH/addressbook.git'
+			}
+		}
 
-        script{
+		stage('Validate project') {
+		steps {
 
-            mvn validate
-        }
-    }
-}
+			script{
 
-stages{
+				mvn validate
+			}
+		}
+	}
 
-    stage('Compile project') {
-    steps {
+	stages{
 
-        script{
+		stage('Compile project') {
+		steps {
 
-            mvn compile
-        }
-    }
-}
+			script{
+
+				mvn compile
+			}
+		}
+	}
 }
 }
 }
