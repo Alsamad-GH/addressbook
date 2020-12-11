@@ -35,6 +35,8 @@ pipeline {
 				sh '''
 					mvn validate
 				   '''
+				   
+				echo "this is Validate Project "
 			}
 		}
 	}
