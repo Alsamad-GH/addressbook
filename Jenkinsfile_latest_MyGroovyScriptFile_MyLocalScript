@@ -1,0 +1,57 @@
+#!groovy
+/*
+=========================================
+Author: Devops
+Date: 11-12-2020
+Purpose: To build Frontend java project
+
+=========================================
+*/
+
+pipeline {
+
+	agent {
+
+		label 'master'
+	}
+	tools {
+
+		 maven 'MavenLocal'   //is my maven name used in this project it is available in Global Tool Configuration
+		 jdk 'JavaLocal'     //is my JDK name used in this project it is available in Global Tool Configuration
+
+	}
+
+	stages{
+	
+		
+
+		stage('Validate project') {
+		steps {
+
+			script{    /*If windows it will be bat instead of sh */
+				sh '''   
+					mvn validate
+				   '''
+				   
+				echo "this is Validate Project Completed"
+			}
+		}
+	}
+
+	
+	
+
+		stage('Compile project') {
+		steps {
+
+			script{   /*If windows it will be bat instead of sh */
+				sh '''
+					mvn compile
+				   '''
+				echo "this is Compile project Completed"  
+			}
+		}
+	}
+
+}
+}
