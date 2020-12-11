@@ -16,8 +16,9 @@ pipeline {
 	}
 	tools {
 
-		 maven 'mymaven'  // 
-		 jdk 'java11'
+		 maven 'mymaven'   //is my maven name used in this project it is available in Global Tool Configuration
+		 jdk 'java11'     //is my JDK name used in this project it is available in Global Tool Configuration
+
 	}
 
 	stages{
@@ -28,11 +29,11 @@ pipeline {
 		steps {
 
 			script{
-				sh '''
+				sh '''    //If windows it will be bat instead of sh
 					mvn validate
 				   '''
 				   
-				echo "this is Validate Project "
+				echo "this is Validate Project Completed"
 			}
 		}
 	}
@@ -47,6 +48,7 @@ pipeline {
 				sh '''
 					mvn compile
 				   '''
+				echo "this is Compile project Completed"
 			}
 		}
 	}
