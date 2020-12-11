@@ -18,43 +18,72 @@ pipeline {
 
 		 maven 'mymaven'   //is my maven name used in this project it is available in Global Tool Configuration
 		 jdk 'java11'     //is my JDK name used in this project it is available in Global Tool Configuration
-
 	}
 
 	stages{
 	
-		stage ('Code Cjheckout') {
+		stage ('Code Checkout') {
 			steps{
 			git branch: '7.7', credentialsId: 'devops_git', url: 'https://github.com/Alsamad-GH/addressbook.git'
+			//git branch: 'main', credentialsId: 'devops_git', url: 'https://github.com/Alsamad-GH/spring-petclinic.git'
 			}
 		}
 		stage('Validate project') {
-		steps {
+			steps {
 
-			script{    /*If windows it will be bat instead of sh */
-				sh '''   
-					mvn validate
-				   '''
-				   
-				echo "this is Validate Project Completed"
+				script{    /*If windows it will be bat instead of sh */
+					sh '''   
+						mvn validate
+					   '''
+					   
+					echo "this is Validate Project Completed"
+				}
 			}
 		}
-	}
-
-	
-	
-
 		stage('Compile project') {
-		steps {
+			steps {
 
-			script{   /*If windows it will be bat instead of sh */
-				sh '''
-					mvn compile
-				   '''
-				echo "this is Compile project Completed"  
+				script{   /*If windows it will be bat instead of sh */
+					sh '''
+						mvn compile
+					   '''
+					echo "this is Compile project Completed"  
+				}
 			}
 		}
-	}
+		stage('Test Project') {
+			steps {
 
-}
+					script{   /*If windows it will be bat instead of sh */
+						sh '''
+							mvn test
+						   '''
+						echo "this is Test project Completed"  
+					}
+				}
+		}
+		stage('Package Project') {
+			steps {
+
+					script{   /*If windows it will be bat instead of sh */
+						sh '''
+							mvn package
+						   '''
+						echo "this is Package project Completed"  
+					}
+				}
+		}
+		stage('Status Project') {
+			steps {
+
+					script{   /*If windows it will be bat instead of sh */
+						
+						echo "this is Build Completed"  
+					}
+				}
+		}
+	
+	
+
+	}
 }
