@@ -28,8 +28,8 @@ pipeline {
 		stage('Validate project') {
 		steps {
 
-			script{    /*If windows it will be bat instead of sh */
-				sh '''   
+			script{    /*If windows it will be  bat (or) powershell instead of sh below */
+				bat '''   
 					mvn validate
 				   '''
 				   
@@ -44,8 +44,8 @@ pipeline {
 		stage('Compile project') {
 		steps {
 
-			script{   /*If windows it will be bat instead of sh */
-				sh '''
+			script{   /*If windows it will be  bat (or) powershell instead of sh below */
+				bat '''
 					mvn compile
 				   '''
 				echo "this is Compile project Completed"  
