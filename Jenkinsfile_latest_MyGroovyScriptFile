@@ -44,11 +44,11 @@ pipeline {
 		stage('Compile project') {
 		steps {
 
-			script{
+			script{   /*If windows it will be bat instead of sh */
 				sh '''
 					mvn compile
 				   '''
-				echo "this is Compile project Completed"
+				echo "this is Compile project Completed"  
 			}
 		}
 	}
