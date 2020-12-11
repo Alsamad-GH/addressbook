@@ -16,7 +16,7 @@ pipeline {
 	}
 	tools {
 
-		 maven 'mymaven'
+		 maven 'mymaven'  // 
 		 jdk 'java11'
 	}
 
@@ -32,8 +32,9 @@ pipeline {
 		steps {
 
 			script{
-
-				mvn validate
+				sh '''
+					mvn validate
+				   '''
 			}
 		}
 	}
@@ -45,8 +46,9 @@ pipeline {
 		steps {
 
 			script{
-
-				mvn compile
+				sh '''
+					mvn compile
+				   '''
 			}
 		}
 	}
