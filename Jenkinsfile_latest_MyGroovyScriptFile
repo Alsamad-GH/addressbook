@@ -28,7 +28,7 @@ pipeline {
 		stage('Validate project') {
 		steps {
 
-			script{    //If windows it will be bat instead of sh
+			script{    /*If windows it will be bat instead of sh */
 				sh '''   
 					mvn validate
 				   '''
