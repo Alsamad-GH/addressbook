@@ -38,7 +38,8 @@ pipeline {
 		}
 	}
 
-	stages{
+	
+	
 
 		stage('Compile project') {
 		steps {
@@ -49,6 +50,6 @@ pipeline {
 			}
 		}
 	}
-}
+
 }
 }
