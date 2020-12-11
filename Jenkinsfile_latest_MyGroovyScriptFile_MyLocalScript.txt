@@ -16,8 +16,8 @@ pipeline {
 	}
 	tools {
 
-		 maven 'maven'   //is my maven name used in this project it is available in Global Tool Configuration
-		 jdk 'java11'     //is my JDK name used in this project it is available in Global Tool Configuration
+		 maven 'MavenLocal'   //is my maven name used in this project it is available in Global Tool Configuration
+		 jdk 'JavaLocal'     //is my JDK name used in this project it is available in Global Tool Configuration
 
 	}
 
