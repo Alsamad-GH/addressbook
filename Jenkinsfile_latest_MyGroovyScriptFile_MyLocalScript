@@ -69,7 +69,7 @@ pipeline {
 		
 		stage('Status Project') {
 			steps{	
-				Script{
+				script{
 					echo "This is Build Competed"
 				}
 			}
