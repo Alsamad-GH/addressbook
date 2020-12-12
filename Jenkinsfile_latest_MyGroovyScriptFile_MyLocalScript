@@ -58,7 +58,7 @@ pipeline {
 		
 		stage('Package Project') {
 			steps{
-				script{
+				script{ 	/*If windows it will be  bat (or) powershell instead of sh below */
 					bat '''
 							mvn package
 						'''
@@ -67,6 +67,13 @@ pipeline {
 			}
 		}
 		
+		stage('Status Project') {
+			steps{	
+				Script{
+					echo "This is Build Competed"
+				}
+			}
+		}
 		
 
 }
