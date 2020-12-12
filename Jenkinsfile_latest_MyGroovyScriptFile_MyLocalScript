@@ -23,35 +23,51 @@ pipeline {
 
 	stages{
 	
-		
-
 		stage('Validate project') {
-		steps {
-
-			script{    /*If windows it will be  bat (or) powershell instead of sh below */
-				bat '''   
-					mvn validate
-				   '''
-				   
-				echo "this is Validate Project Completed"
+			steps {
+				script{    /*If windows it will be  bat (or) powershell instead of sh below */
+					bat '''   
+							mvn validate
+						'''
+					echo "This is Validate Project Completed"
+				}
 			}
 		}
-	}
-
-	
-	
 
 		stage('Compile project') {
-		steps {
-
-			script{   /*If windows it will be  bat (or) powershell instead of sh below */
-				bat '''
-					mvn compile
-				   '''
-				echo "this is Compile project Completed"  
+			steps {
+				script{   /*If windows it will be  bat (or) powershell instead of sh below */
+					bat '''
+							mvn compile
+						'''
+					echo "This is Compile project Completed"  
+				}
 			}
 		}
-	}
+		
+		stage('Test Project') {
+			steps {
+				script{		/*If windows it will be  bat (or) powershell instead of sh below */
+					bat '''
+							mvn test
+						'''
+					echo "This is Test Project Completed"	
+				}
+			}
+		}
+		
+		stage('Package Project') {
+			steps{
+				script{
+					bat '''
+							mvn package
+						'''
+					echo "This is Package Project Competed"
+				}
+			}
+		}
+		
+		
 
 }
 }
